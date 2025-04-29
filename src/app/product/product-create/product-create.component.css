@@ -1,0 +1,6 @@
+.select-border-danger{
+    border-color:hsl(348, 100%, 61%);
+}
+.select-border-success{
+    border-color:hsl(171, 100%, 41%);
+}

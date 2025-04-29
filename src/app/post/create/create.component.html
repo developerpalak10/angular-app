@@ -1,0 +1,35 @@
+<div class="container">
+  
+        <h1 class="title is-centered mt-4">Create</h1> 
+    
+    
+<form [formGroup]="form" class="box" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label class="label">Title</label>
+      <div class="control">
+        <input class="input" type="text" id="title" placeholder="title" formControlName="title" />
+      </div>
+      @if ((f['title'].errors && f['title'].errors['required']) || 
+      (f['title'].touched && f['title'].invalid)) {
+
+          <p class="has-text-danger ">Title is Required</p>
+      }
+    </div>
+  
+    <div class="field">
+      <label class="label">Body</label>
+      <div class="control">
+        <input class="input" type="text" id="body" placeholder="body" formControlName="body"/>
+      </div>
+      @if (f['body'].errors && f['body'].errors['required']) {
+
+        <p class="has-text-danger ">Body is Required</p>
+    }
+    </div>
+  <div>
+
+      <button type="submit" class="button is-primary is-rounded" [disabled]="!form.valid">Create</button>
+      <button class="button is-dark is-rounded" routerLink="/post">Back</button> 
+  </div>
+  </form>
+</div>

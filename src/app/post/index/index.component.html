@@ -1,0 +1,52 @@
+<div class="container " >
+    <h1 class="title has-text-centered mt-3">Posts Listing</h1>
+    <button class="button is-primary is-rounded  mb-3  is-pulled-right" routerLink="/post/create">Create</button>
+    @if (isLoading) {
+        <h2 class="title">LOADING...</h2>
+        
+    }@else {
+
+        <table class="table is-fullwidth is-narrow is-bordered">
+            <thead>
+                <tr>
+                    <th><abbr title="id">ID</abbr></th>
+                    <th>Title</th>
+                    <th><abbr title="body">Body</abbr></th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th><abbr title="id">ID</abbr></th>
+                    <th>Title</th>
+                    <th><abbr title="body">Body</abbr></th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @for (post of posts; track $index) {
+                    <tr id={{$index}}>
+                        <th>{{post.id}}</th>
+                        <td>{{post.title}}</td>
+                        <td>
+                           {{post.body}}
+                        </td>
+                        
+                        <td>
+                            <div class="buttons">
+                                <button class="button is-info is-rounded" [routerLink]="['/post/',post.id,'view']">View</button>
+                                <button class="button is-link is-rounded" [routerLink]="['/post/', post.id, 'edit']">Edit</button>
+                                <button class="button is-danger is-rounded" (click)="deletePost(post.id)">Delete</button>
+                              </div>
+                        </td>
+                    </tr>
+                    
+                }
+                @empty {
+                    <tr>no data</tr>
+                }
+    
+            </tbody>
+        </table>
+    }
+</div>

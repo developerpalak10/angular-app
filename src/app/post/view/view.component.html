@@ -1,0 +1,16 @@
+@if (isLoading) {
+
+<div class=" container skeleton-block mt-4 is-fullwidth">
+  <div></div>
+
+</div>
+}@else {
+<div class="container">
+  <button class="button is-dark is-rounded mt-3" routerLink="/post/index">Back</button>
+  <div class="notification is-light mt-3">
+    <h2>Title : </h2> {{post.title}}
+    <h2>body : </h2> {{post.body}}
+  </div>
+</div>
+
+}

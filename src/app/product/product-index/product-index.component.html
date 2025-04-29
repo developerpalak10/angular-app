@@ -1,0 +1,119 @@
+<div class="container ">
+    <div class="block">
+
+        <h1 class="title has-text-centered mt-3">Users Listing</h1>
+        <button class="button is-primary is-rounded  mb-3  is-pulled-right" routerLink="/product/create">Create</button>
+    </div>
+    <div class="block">
+        <!-- <div class="columns is-mobile">
+            <div class="column has-background-info">Column A</div>
+            <div class="column has-background-success">Column B</div>
+            <div class="column has-background-warning">Column C</div>
+            <div class="column has-background-danger">Column D</div>
+          </div> -->
+        <br>
+        <div class="columns is-desktop mt-4">
+            <div class="column ">
+                <div class="field">
+                    <label class="label">UserName/Email</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Text input" [(ngModel)]="username">
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="column">
+                <div class="field">
+                    <label class="label">Role</label>
+                    <div class="control is-expanded">
+                        <div class="select ">
+                            <select>
+                                <option value="">Select</option>
+                                <option value="moderator">Moderator</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="column">
+                <div class="field">
+                    <label class="label">Gender</label>
+                    <div class="control">
+                        <div class="select " >
+                            <select>
+                                <option value="">Select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <button class="button is-info" (click)="onSearchResult()">Search</button>
+        <!-- <button class="button" (click)="resetForm()">Reset</button> -->
+    </div>
+    @if (isLoading) {
+    <h2 class="has-text-centered title">Loading...</h2>
+    }@else {
+
+    <div class="block">
+
+        <table class="table is-fullwidth is-bordered ">
+            <thead>
+                <tr>
+                    <th><abbr title="id">ID</abbr></th>
+                    <th>Profile</th>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>FirstName</th>
+                    <th>Gender</th>
+                    <th>Role</th>
+                    <th><abbr title="University">University</abbr></th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th><abbr title="id">ID</abbr></th>
+                    <th>Profile</th>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>FirstName</th>
+                    <th>Gender</th>
+                    <th>Role</th>
+                    <th><abbr title="University">University</abbr></th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @for (user of users; track user.id) {
+
+                <tr>
+                    <td>{{user.id}}</td>
+                    <th><img src={{user.image}} /></th>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.role}}</td>
+                    <td>{{user.university}}</td>
+                    <td>
+                        <!-- <div class="buttons"> -->
+                        <a href="#" class="button is-info is-rounded"
+                            [routerLink]="['/product/',user.id,'view']">View</a>
+                        <a href="#" class="button is-primary is-rounded"
+                            [routerLink]="['/product',user.id,'edit']">Edit</a>
+                        <button class="button is-danger is-rounded" (click)="deleteProduct(user.id)">Trash</button>
+                            
+                        
+                        <!-- </div> -->
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    }
+
+</div>

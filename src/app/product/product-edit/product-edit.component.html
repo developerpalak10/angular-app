@@ -1,0 +1,159 @@
+<div class="container box mt-4">
+    <h2 class="title is-centered">Edit User</h2>
+    @if (isLoading) {
+    <h2 class="has-text-centered title">Loading...</h2>
+    }@else {
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label class="label">FirstName *</label>
+            <div class="control">
+                <input class="input"
+                    [ngClass]="form.controls['firstName'].invalid && isSubmitted ? 'is-danger' : 'is-success'"
+                    type="text" placeholder="First Name" formControlName="firstName" [(ngModel)]="product.firstName">
+            </div>
+            @if (form.controls['firstName'].invalid && isSubmitted) {
+
+            <p class="help is-danger">FirstName is required</p>
+            }
+        </div>
+        <div class="field">
+            <label class="label">LastName *</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Last Name" formControlName="lastName"
+                    [ngClass]="form.controls['lastName'].invalid && isSubmitted ? 'is-danger' : 'is-success'"
+                    [(ngModel)]="product.lastName">
+            </div>
+            @if (form.controls['lastName'].invalid && isSubmitted) {
+
+            <p class="help is-danger">LastName is required</p>
+            }
+        </div>
+
+        <div class="field">
+            <label class="label">Username *</label>
+            <!-- <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Text input">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div> -->
+            <div class="control">
+                <input class="input" type="text" placeholder="User Name" formControlName="username"
+                    [ngClass]="form.controls['username'].invalid && isSubmitted ? 'is-danger' : 'is-success'"
+                    [(ngModel)]="product.username">
+            </div>
+            @if (form.controls['username'].invalid && isSubmitted) {
+
+            <p class="help is-danger">userName is required</p>
+            }
+            <!-- <p class="help is-success">This username is available</p> -->
+        </div>
+
+        <div class="field">
+            <label class="label">Email *</label>
+            <!-- <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Email input">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+                </div> -->
+            <div class="control">
+                <input class="input" type="email" placeholder="Email" formControlName="email"
+                    [ngClass]="form.controls['email'].invalid && isSubmitted ? 'is-danger' : 'is-success'"
+                    [(ngModel)]="product.email">
+            </div>
+            @if (form.controls['email'].invalid && isSubmitted) {
+
+            <p class="help is-danger">Email is required</p>
+            }
+            <!-- <p class="help is-danger">This email is invalid</p> -->
+        </div>
+
+        <div class="field">
+            <label class="label">Role *</label>
+            <div class="control">
+                <div class="select">
+                    <select id="role" name="role" formControlName="role"
+                        [ngClass]="form.controls['role'].invalid && isSubmitted ? 'select-border-danger' : 'select-border-success'"
+                        [(ngModel)]="product.role">
+                        <option value="moderator">Moderator</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+            </div>
+            @if (form.controls['role'].invalid && isSubmitted) {
+
+            <p class="help is-danger">Role is required</p>
+            }
+        </div>
+
+        <div class="field">
+            <label class="label">Age *</label>
+            <div class="control">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Age" name="age" formControlName="age"
+                        [ngClass]="form.controls['age'].invalid && isSubmitted ? 'is-danger' : 'is-success'"
+                        [(ngModel)]="product.age">
+                </div>
+            </div>
+            @if (form.controls['age'].invalid && isSubmitted) {
+
+            <p class="help is-danger">Age is required</p>
+            }
+        </div>
+
+        <div class="field">
+            <label class="label">University</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="University Name" id="university" name="university"
+                    formControlName="university" [(ngModel)]="product.university"></textarea>
+            </div>
+        </div>
+
+        <!-- <div class="field">
+                <div class="control">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        I agree to the <a href="#">terms and conditions</a>
+                    </label>
+                </div>
+            </div> -->
+
+        <div class="field">
+            <label class="label">Gender *</label>
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="gender" value="male" formControlName="gender"
+                        [(ngModel)]="product.gender">
+                    Male
+                </label>
+                <label class="radio">
+                    <input type="radio" name="gender" value="female" formControlName="gender"
+                        [(ngModel)]="product.gender">
+                    Female
+                </label>
+            </div>
+            @if (form.controls['age'].invalid && isSubmitted) {
+
+            <p class="help is-danger">Age is required</p>
+            }
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" type="submit">Update</button>
+            </div>
+            <div class="control buttons">
+                <button class="button is-link is-light" [routerLink]="['/product/index']">Cancel</button>
+            </div>
+        </div>
+    </form>
+    }
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="block mt-4">
+        <button class="button is-dark is-rounded" routerLink="/product/index">Back</button>
+    </div>
+    @if (isLoading) {
+    <h2 class="has-text-centered title">Loading...</h2>
+    }@else {
+
+    <div class="block">
+        <div class="box">
+            <h2><strong>Image</strong> :<img src={{user.image}} /></h2>
+            <h2><strong>UserName</strong> :{{user.username}}</h2>
+            <h2><strong>Gender</strong> :{{user.gender}}</h2>
+            <h2><strong>Role</strong> :{{user.role}}</h2>
+            <h2><strong>University</strong> :{{user.university}}</h2>
+            <h2><strong>Age</strong> :{{user.age}}</h2>
+            <h2><strong>State</strong> :{{user.address?.state}}</h2>
+            <h2><strong>City</strong> :{{user.address?.city}}</h2>
+            <h2><strong>University</strong> :{{user.university}}</h2>
+
+        </div>
+    </div>
+    }
+</div>

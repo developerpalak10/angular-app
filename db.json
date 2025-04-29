@@ -1,0 +1,23 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Ram",
+            "description": "test",
+            "brand": "Gucci",
+            "category": "cat1",
+            "price": 199,
+            "section": "Male"
+        }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "name": "Item 1"
+        },
+        {
+            "id": 2,
+            "name": "Item 2"
+        }
+    ]
+}
